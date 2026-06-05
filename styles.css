@@ -1293,3 +1293,20 @@ body::before {
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.15); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,0.3); }
+
+@media print {
+    /* Ép trình duyệt giữ nguyên màu sắc và background */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Đảm bảo nền không bị đổi sang màu trắng */
+    body {
+        background-color: #0b0f19 !important; /* Thay mã màu này bằng màu nền chuẩn của bạn */
+    }
+
+    /* Ẩn bớt thanh cuộn hoặc những thứ không cần thiết khi in */
+    ::-webkit-scrollbar {
+        display: none;
+    }
